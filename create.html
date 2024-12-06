@@ -1,0 +1,166 @@
+
+
+<?php
+session_start();
+
+if (!isset( $_SESSION['roles']) != 'admin') {
+    header("Location: login.php");
+    exit;
+}
+
+// Prevent browser caching
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); // Proxies.
+?>
+<?php
+include './db.php';
+if (isset($_POST['submit'])) {
+    if (isset($_POST['categories']) && isset($_POST['productName']) && isset($_POST['description']) && isset($_POST['stock']) && isset($_POST['Price']) && isset($_POST['status']) && isset($_FILES['ProductImage'])) {
+        if (!empty($_POST['categories'])&&!empty($_POST['description']) && !empty($_POST['productName']) && !empty($_POST['stock']) && !empty($_POST['Price']) && !empty($_POST['status'])&&  !empty($_FILES['ProductImage'])) {
+            $categories = $_POST['categories'];
+            $productName = $_POST['productName'];
+            $description = $_POST['description'];
+            $stock = $_POST['stock'];
+            $Price = $_POST['Price'];
+            $status = $_POST['status'];
+            if (isset($_FILES['ProductImage']) && $_FILES['ProductImage']['error'] == 0) {
+                $image = $_FILES['ProductImage'];
+                $target_dir = "uploads/";
+                $target_file = $target_dir . basename($image['name']);
+                if (move_uploaded_file($image['tmp_name'], $target_file)) {
+                    $ProductImage = $target_file;
+                } else {
+                    echo "Error uploading the image ";
+                    $ProductImage = null;
+                }
+            } else {
+                $ProductImage = null;
+
+            }
+            try{
+
+          
+            $sql = "Insert Into products(product_name,catergory,stock,price,status,ProductImage,description) VALUES (:productName, :catergory, :stock, :price, :status,:ProductImage,:description)";
+            $stmt = $pdo->prepare($sql);
+
+            // Execute the query with parameters
+            $stmt->execute([
+                ':productName' => $productName,
+                ':catergory' => $categories,
+                ':stock' => $stock,
+                ':price' => $Price,
+                ':status' => $status,
+                ':ProductImage' => $ProductImage,
+                ':description' => $description,
+
+            ]);
+          
+        }catch(PDOException $e){
+            echo "Error:".$e->getMessage();
+        }
+        } else {
+            echo 'Please fill out all the fields.';
+        }
+    } else {
+        echo 'Invalid form submission.';
+    }
+} else {
+    echo 'Form not submitted.';
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Create Product</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="nav">
+            <div class="logo">
+                <img src="../../resources/images/logo.png" alt="">
+            </div>
+            <!-- naviggation pane -->
+            <ul>
+                <!-- link -->
+                <!-- <li>
+                    <a href="users.php">
+                        <img src="../../resources/images/user.png" alt="">
+                        <p>users</p>
+                    </a>
+                </li> -->
+                <!-- link end -->
+                <!-- link -->
+                <li>
+                    <a href="./products.php">
+                        <img src="../../resources/images/folder.png" alt="">
+                        <p>Products</p>
+                    </a>
+                </li>
+                <!-- link end -->
+                <!-- link -->
+                <li>
+                    <a href="./orders.php">
+                        <img src="../../resources/images/clipboard.png" alt="">
+                        <p>orders</p>
+                    </a>
+                </li>
+                <!-- link end -->
+                <!-- link  -->
+                <li>
+                    <a href="#">
+                        <img src="../../resources/images/page.png" alt="">
+                        <p>Create Products</p>
+                    </a>
+                </li>
+                <!-- link end -->
+                <!-- link -->
+                <li>
+                    <a href="">
+                        <img src="../../resources/images/log-out.png" alt="">
+                     <form action="../login.php" method="post">
+                        <button name="logout" class="btn">logout</button>
+                     </form>
+                    </a>
+                </li>
+                <!-- link end -->
+            </ul>
+        </div>
+      
+        <div id="content">
+
+            <h1>create Product</h1>
+            <form action="./create.php" class="create" method="POST" enctype="multipart/form-data">
+    <input type="text" name="productName" placeholder="Product Name" id="">
+    <input type="file"  name="ProductImage" alt="">
+    <select name="categories" id="" class="categories">
+        <option value="">Select Category</option>
+        <option value="Living Room Furniture">Living Room Furniture</option>
+        <option value="Dining Room Furniture">Dining Room Furniture</option>
+        <option value="Home Decor">Home Decor</option>
+        <option value="Kitchen Furniture">Kitchen Furniture</option>
+        <option value="Storage Solutions">Storage Solutions</option>
+        <option value="Bathroom Furniture">Bathroom Furniture</option>
+        <option value="Meeting Room Furniture">Meeting Room Furniture</option>
+    </select>
+    <input type="text" name="stock" placeholder="Stock number" id="">
+    <input type="text" name="Price" placeholder="Price" id="">
+    <select name="status" id="" class="status">
+        <option value="">Select Status</option>
+        <option value="outOfStock">Out of Stock</option>
+        <option value="outOfStock">In Store</option>
+        <option value="Published">Published</option>
+        <option value="Available">Available</option>
+    </select>
+    <textarea name="description" placeholder="Product description"></textarea>
+    <button type="submit" name="submit">Submit</button>
+</form>
+        </div>
+    </div>
+    
+</body>
+</html>

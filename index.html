@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME HAVEN</title>
+    <link rel="stylesheet" href="Pages/style.css">
+    <link rel="short cut icon" type="x-icon" href="resources/images/logo.png">
+</head>
+<body>
+    <!-- container of the website -->
+    <div class="container" id="container">
+        <!-- nav bar -->
+         <!-- change nav -->
+        <nav>
+            <img class="logo" src="../resources/images/logo.png" alt="">
+            <img class="bugger-icon" id="bugger"  src="../resources/images/bugger.png" alt="">
+            <div class="nav-container" id="nav_container" >
+            <ul class="links" id="links">
+                <li><a href="#">home</a></li>
+                <li><a href="#about-us">About</a></li>
+                <li><a href="#our-collection">our Collection</a></li>
+            </ul>
+            <div class="searchBar">
+                <img id="search" src="../resources/images/search.png" alt="">
+                <input id="search_input" type="search" name="search" id="" placeholder="find your products faster...">
+            </div>
+            <!-- login and cart -->
+            <div class="login_cart">
+
+                <div class="cart-button-profile">
+                    <img src="../resources/images/cart.png" onclick="openModal()" alt="">
+                    <div>
+                        <p id="cart_no">0</p>
+                    </div>
+                </div>
+                <div class="profile_login">
+<img src="../resources/images/user.png" onclick="openLogin()" alt="">';
+
+                </div>
+            </div>
+        </div>
+        </nav>
+        <!-- contents -->
+        <div class="contents">
+            <!-- banner area -->
+            <div class="banner">
+                <div class="left">
+                    <h1 class="homica">home haven</h1>
+                    <div CLASS="text-container">
+                        <div class="text">
+
+                            <img src="../resources/images/116179.jpg " alt="">
+                            <p>Home Haven offers stylish, functional furniture for home and office, enhancing comfort
+                                and productivity effortlessly</p>
+                        </div>
+                        <!-- <img src="../resources/images/sofa3.png" alt="">     -->
+                    </div>
+
+
+                </div>
+                <img class="big-img" src="../resources/images/sofa2.png " alt="">
+
+            </div>
+            <!-- end of banner -->
+            <!-- about us -->
+            <div class="about-us" id="about-us">
+                <!-- about headings -->
+                <div class="about-us-headings">
+                    <h3 class="">We Are</h3>
+                    <h3 class="">Home Haven</h3>
+                </div>
+                <!-- about content -->
+                <div class="content">
+                    <div class="profile-about">
+                        <img src="../resources/images/interior-design2.png" alt="">
+                        <div class="text">
+                            <h2>about us</h2>
+                            <p>At Home Haven, we are passionate about creating spaces that inspire. Specializing in
+                                high-quality furniture for both home and office.</p>
+                            <div class="logos">
+                                <img src="../resources/images/room.png" alt="">
+                                <img src="../resources/images/office.png" alt="">
+                                <img src="../resources/images/meeting-room.png" alt="">
+                            </div>
+                            <button> <a href="#check_out">Get in touch with us</a></button>
+                        </div>
+                    </div>
+                    <!-- main logo (home haven) -->
+                    <div class="logoo">
+                        <div>
+
+                            <img src="../resources/images/logo.png" alt="">
+                        </div>
+                        <p>"Transform Your Space with Style: Discover Comfort and Functionality for Home and Office at
+                            Home Haven Furniture Store!"</p>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end about us -->
+            <div class="our-collection" id="our-collection">
+                <div class="divider">
+                    <div></div>
+                    <h1>Our Collection</h1>
+                </div>
+                <ul>
+                    <li>All</li>
+                    <li>Home</li>
+                    <li class="active">Office</li>
+                </ul>
+                <!-- cart -->
+                <div id="cart_container">
+                    <div class="cart" id="cart">
+                        <img src="../resources/images/close.png" onclick="closeModal()" alt="" class="close">
+                        <!-- list of selected item -->
+                        <h1>Your Cart has <span id="item_no">0</span> item(s)</h1>
+
+                        <div class="items">
+
+                            <table>
+                                <tr class="headings">
+                                    <th>item</th>
+                                    <th>price</th>
+                                    <th>Quantity</th>
+                                    <th>total</th>
+                                </tr>
+                                <tbody id="item_list">
+                                    <!-- <tr class="item">
+                                    <td>
+                                        <p class="item_name">sofa set</p>
+                                        <p class="item_description">Lorem ipsum dolor sit amet.</p>
+                                    </td>
+                                    <td>
+                                        <p class="price">34</p>
+                                    </td>
+                                    <td class="quantity">
+                                        <img src="../resources/images/minus.png" class="minus" alt="">
+                                        <div class="quantity_no">1</div>
+                                        <img src="../resources/images/plus-sign.png" class="plus" alt="">
+                                    </td>
+                                    <td>
+                                        <p class="total"> 56</p>
+
+                                    </td>
+                                </tr>
+                               -->
+                                </tbody>
+                            </table>
+                            <div class="shopping_total">
+
+                                <div id="grand_total">
+                                    <h3>total</h3>
+                                    <h3>$0</h3>
+                                </div>
+                                <div class="buttons">
+                                    <button onclick="showBalance()">checkout</button>
+                                <form id="checkoutForm" method="POST" action="../pages/place_order.php">
+        <input type="hidden" name="cart_data" id="cartData">
+        <button type="button" onclick="placeOrder()">Submit Orders</button>
+    </form>
+                                    <button onclick="closeModal()">continue shopping</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end cart -->
+                <!-- products -->
+                <div class="products" id="products">
+                    <div class="product ">
+                        <h3 class="product_name">Blue office Chairs</h3>
+                        <img src="../resources/images/chair.png" alt="">
+                        <!-- about product -->
+                        <div class="about_product">
+                            <p>
+                                Comfortable and stylish blue office chair, designed for ergonomic support with
+                                adjustable height and a sleek finish, perfect for any workspace
+                            </p>
+                        </div>
+                        <div class="bottom">
+                            <h2>$<span class="price">34</span></h2>
+                            <img src="../resources/images/plus-circle.png" class="addToCart" alt="">
+                        </div>
+
+                    </div>
+                    <!--end  product -->
+                    <div class="product ">
+                        <h3 class="product_name">Blue office Chairs</h3>
+                        <img src="../resources/images/chair.png" alt="">
+                        <!-- about product -->
+                        <div class="about_product">
+                            <p>
+                                Comfortable and stylish blue office chair, designed for ergonomic support with
+                                adjustable height and a sleek finish, perfect for any workspace
+                            </p>
+                        </div>
+                        <div class="bottom">
+                            <h2>$<span class="price">34</span></h2>
+                            <img src="../resources/images/plus-circle.png" class="addToCart" alt="">
+                        </div>
+
+                    </div>
+                    <!--end  product -->
+                    <div class="product ">
+                        <h3 class="product_name">Blue office Chairs</h3>
+                        <img src="../resources/images/chair.png" alt="">
+                        <!-- about product -->
+                        <div class="about_product">
+                            <p>
+                                Comfortable and stylish blue office chair, designed for ergonomic support with
+                                adjustable height and a sleek finish, perfect for any workspace
+                            </p>
+                        </div>
+                        <div class="bottom">
+                            <h2>$<span class="price">34</span></h2>
+                            <img src="../resources/images/plus-circle.png" class="addToCart" alt="">
+                        </div>
+
+                    </div>
+                    <!--end  product -->
+                    <div class="product ">
+                        <h3 class="product_name">Blue office Chairs</h3>
+                        <img src="../resources/images/chair.png" alt="">
+                        <!-- about product -->
+                        <div class="about_product">
+                            <p>
+                                Comfortable and stylish blue office chair, designed for ergonomic support with
+                                adjustable height and a sleek finish, perfect for any workspace
+                            </p>
+                        </div>
+                        <div class="bottom">
+                            <h2>$<span class="price">34</span></h2>
+                            <img src="../resources/images/plus-circle.png" class="addToCart" alt="">
+                        </div>
+
+                    </div>
+                    <!--end  product -->
+                    <div class="product ">
+                        <h3 class="product_name">Blue office Chairs</h3>
+                        <img src="../resources/images/chair.png" alt="">
+                        <!-- about product -->
+                        <div class="about_product">
+                            <p>
+                                Comfortable and stylish blue office chair, designed for ergonomic support with
+                                adjustable height and a sleek finish, perfect for any workspace
+                            </p>
+                        </div>
+                        <div class="bottom">
+                            <h2>$<span class="price">34</span></h2>
+                            <img src="../resources/images/plus-circle.png" class="addToCart" alt="">
+                        </div>
+
+                    </div>
+                    <!--end  product -->
+                    <div class="product ">
+                        <h3 class="product_name">Blue office Chairs</h3>
+                        <img src="../resources/images/chair.png" alt="">
+                        <!-- about product -->
+                        <div class="about_product">
+                            <p>
+                                Comfortable and stylish blue office chair, designed for ergonomic support with
+                                adjustable height and a sleek finish, perfect for any workspace
+                            </p>
+                        </div>
+                        <div class="bottom">
+                            <h2>$<span class="price">34</span></h2>
+                            <img src="../resources/images/plus-circle.png" class="addToCart" alt="">
+                        </div>
+
+                    </div>
+                    <!--end  product -->
+                    <div class="product ">
+                        <h3 class="product_name">Blue office Chairs</h3>
+                        <img src="../resources/images/chair.png" alt="">
+                        <!-- about product -->
+                        <div class="about_product">
+                            <p>
+                                Comfortable and stylish blue office chair, designed for ergonomic support with
+                                adjustable height and a sleek finish, perfect for any workspace
+                            </p>
+                        </div>
+                        <div class="bottom">
+                            <h2>$<span class="price">34</span></h2>
+                            <img src="../resources/images/plus-circle.png" class="addToCart" alt="">
+                        </div>
+
+                    </div>
+                    <!--end  product -->
+
+                    <!-- product -->
+                     <!-- <?php
+try {
+    require './admin pane/db.php';
+
+    $query = "SELECT product_name, catergory, stock, sold, price, ProductImage, status, description FROM products LIMIT 12";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute();
+
+    // Loop through the fetched products and display them
+    while ($product = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo "<div class='product'>";
+        echo "<h3 class='product_name'>" . htmlspecialchars($product['product_name']) . "</h3>";
+        echo "<img src='./admin pane/" . htmlspecialchars($product['ProductImage']) . "' alt=''>";
+        // about product
+        echo "<div class='about_product'>";
+        echo "<h3 class='product_name'>" . htmlspecialchars($product['product_name']) . "</h3>";
+        echo "<p>" . htmlspecialchars($product['description']) . "</p>";
+        echo "</div>";
+        echo "<div class='bottom'>";
+        echo "<h2>$<span class='price'>" . htmlspecialchars($product['price']) . "</span></h2>";
+        echo "<img src='../resources/images/plus-circle.png' class='addToCart' alt=''>";
+        echo "</div>";
+        echo "</div>";
+    }
+} catch (PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+
+// Close the database connection
+$pdo = null;
+?> -->
+                    <!--end  product -->
+
+                </div>
+                <!-- end  of products -->
+                <div class="cart-page"></div>
+            </div>
+            <!-- end of our collection -->
+            <!-- check out -->
+            <div class="check-out" id="check_out">
+                <div class="h1">
+
+                    <h1 id="ch1">its all about designs </h1>
+                    <h1 id="ch2">check out new staff every week</h1>
+                </div>
+                <p id="discover">Discover fresh designs every week with our latest arrivals! Stay updated with unique and stylish
+                    pieces, carefully crafted to enhance your space. It’s all about creativity and quality – explore new
+                    items regularly to elevate your decor!.</p>
+
+                <form action="" class="contact_us">
+                    <div class="contact_us_inputs">
+
+                        <input type="name" placeholder="Your Name" name="" id="">
+                        <input type="email" placeholder="Your Email" name="" id="">
+                        <textarea name="textarea" placeholder="Enter Your Message" id=""></textarea>
+                        <button>check out now</button>
+                    </div>
+                    <div class="text">
+                        <h1>Contact Us </h1>
+                        <img src="../resources/images/logo.png" id="bg" alt="">
+                        <p>Have any questions or need assistance? We're here to help! Feel free to reach out to us
+                            through our contact form, email, or phone. Our dedicated support team is available to
+                            address any inquiries, provide product information, or assist with your orders</p>
+                    </div>
+
+                </form>
+
+
+            </div>
+            <!-- clients container or testimonials-->
+            <div class="our-clients">
+                <h1>"what our clients say"</h1>
+                <div class="clients">
+                    <!-- client -->
+                    <div class="client">
+                        <div class="head">
+                            <h3>Emily R</h3>
+                            <img src="../resources/images/user.png" alt="">
+                        </div>
+                        <div class="rating">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star-half-empty.png" alt="">
+                            <img src="../resources/images/empty-star.png" alt="">
+                        </div>
+                        <!-- testimony -->
+                        <div class="testimony">
+                            <p> "Absolutely love the quality of the furniture! My home office has never looked better.
+                                The design is sleek, modern, and incredibly comfortable. Highly recommend this platform
+                                for anyone looking to upgrade their space!"
+                                — Emily R.</p>
+                        </div>
+                        <div class="bottom">
+                            <p class="date">12-09-23</p>
+                            <div class="reactions_container">
+
+                                <img src="../resources/images/like.png" alt="" class="reaction">
+                                <p class="no_likes">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of client -->
+                    <!-- client -->
+                    <div class="client">
+                        <div class="head">
+                            <h3>Jason M</h3>
+                            <img src="../resources/images/user.png" alt="">
+                        </div>
+                        <div class="rating">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star-half-empty.png" alt="">
+                            <img src="../resources/images/empty-star.png" alt="">
+                        </div>
+                        <!-- testimony -->
+                        <div class="testimony">
+                            <p>"I ordered a new living room set, and I’m beyond impressed! The craftsmanship is
+                                top-notch, and it arrived on time. It’s stylish and practical, and I’ve already received
+                                so many compliments!"
+                                — Jason M.</p>
+                        </div>
+                        <div class="bottom">
+                            <p class="date">12-09-23</p>
+                            <div class="reactions_container">
+
+                                <img src="../resources/images/like.png" alt="" class="reaction">
+                                <p class="no_likes">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of client -->
+                    <!-- client -->
+                    <div class="client">
+                        <div class="head">
+                            <h3>Sarah L</h3>
+                            <img src="../resources/images/user.png" alt="">
+                        </div>
+                        <div class="rating">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star-half-empty.png" alt="">
+                            <img src="../resources/images/empty-star.png" alt="">
+                        </div>
+                        <!-- testimony -->
+                        <div class="testimony">
+                            <p> "The office furniture I purchased transformed my workspace. It's both ergonomic and
+                                stylish, making long work hours much more comfortable. The weekly updates on new designs
+                                keep me coming back for more!"
+                                — Sarah L.</p>
+                        </div>
+                        <div class="bottom">
+                            <p class="date">12-09-23</p>
+                            <div class="reactions_container">
+
+                                <img src="../resources/images/like.png" alt="" class="reaction">
+                                <p class="no_likes">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of client -->
+                    <!-- client -->
+                    <div class="client">
+                        <div class="head">
+                            <h3>Mark D</h3>
+                            <img src="../resources/images/user.png" alt="">
+                        </div>
+                        <div class="rating">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star-half-empty.png" alt="">
+                            <img src="../resources/images/empty-star.png" alt="">
+                        </div>
+                        <!-- testimony -->
+                        <div class="testimony">
+                            <p>"Incredible service and high-quality furniture! My dining room feels like a brand-new
+                                space. The attention to detail in the design is fantastic. I’m thrilled with my purchase
+                                and will definitely be ordering again soon!"
+                                — Mark D</p>
+                        </div>
+                        <div class="bottom">
+                            <p class="date">12-09-23</p>
+                            <div class="reactions_container">
+
+                                <img src="../resources/images/like.png" alt="" class="reaction">
+                                <p class="no_likes">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of client -->
+                    <!-- client -->
+                    <div class="client">
+                        <div class="head">
+                            <h3>Nina W</h3>
+                            <img src="../resources/images/user.png" alt="">
+                        </div>
+                        <div class="rating">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star-half-empty.png" alt="">
+                            <img src="../resources/images/empty-star.png" alt="">
+                        </div>
+                        <!-- testimony -->
+                        <div class="testimony">
+                            <p>"I was searching for the perfect office chair, and this platform delivered! Not only is
+                                it comfortable, but it also looks great in my home office. The whole process was easy,
+                                and the delivery was quick!"
+                                — Nina W.</p>
+                        </div>
+                        <div class="bottom">
+                            <p class="date">12-09-23</p>
+                            <div class="reactions_container">
+
+                                <img src="../resources/images/like.png" alt="" class="reaction">
+                                <p class="no_likes">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of client -->
+                    <!-- client -->
+                    <div class="client">
+                        <div class="head">
+                            <h3>Alex B</h3>
+                            <img src="../resources/images/user.png" alt="">
+                        </div>
+                        <div class="rating">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star.png" alt="">
+                            <img src="../resources/images/star-half-empty.png" alt="">
+                            <img src="../resources/images/empty-star.png" alt="">
+                        </div>
+                        <!-- testimony -->
+                        <div class="testimony">
+                            <p> "The variety of furniture on this platform is amazing. I love that I can find both
+                                trendy and classic pieces for my home. Everything I’ve bought so far has exceeded my
+                                expectations in terms of quality and durability."
+                                — Alex B.</p>
+                        </div>
+                        <div class="bottom">
+                            <p class="date">12-09-23</p>
+                            <div class="reactions_container">
+
+                                <img src="../resources/images/like.png" alt="" class="reaction">
+                                <p class="no_likes">12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of client -->
+
+                </div>
+
+            </div>
+        </div>
+        <!-- login  form -->
+        <div id="login_container">
+            <form action="login.php" method="POST" id="login">
+                <img src="../resources/images/cancel.png" class="close" onclick="closeLogin()" alt="">
+              
+
+
+    <h3>logout from Home haven</h3>
+    <button type="submit" name="logout">logout</button>
+
+
+
+     <h3>login to Home haven</h3>';
+     <input type="email" placeholder="Enter UserEmail" name="useremail">
+     <input type="password" placeholder="Enter Password" name="password">
+     <p class="no_account">Dont Have an Account? <a href="#" onclick="signup()" id="no_account"> Signup</a> </p>
+     <button type="submit" name="login">login</button>
+
+?>
+
+
+            </form>
+        </div>
+        <!-- login  form end-->
+        <!-- no item in the cart -->
+        <div class="container_caution" id="caution">
+            <div class="model">
+                <img src="../resources/images/cancel.png" class="close" onclick="close_caution()" alt="">
+                <p>(0)items in the cart </p>
+                <div>
+
+                    <button class="shop"><a href="#products" onclick="close_caution()">shop</a></button>
+                    <button onclick="close_caution()">close</button>
+                </div>
+            </div>
+        </div>
+        <!-- no item in the cart end-->
+        <!-- footer -->
+        <div class="footer">
+            <ul>
+                <h1 class="logo-name">Home Haven</h1>
+                <p>The center of your home and office designs <br> for every class</p>
+            </ul>
+            <ul>
+                <!-- footer navigation -->
+                <h1>Navigation</h1>
+                <li><a href="#">home</a></li>
+                <li><a href="#about-us">about</a></li>
+                <li><a href="#our-collection">Our Collection</a></li>
+            </ul>
+            <ul>
+                <h1>socials</h1>
+                <li><a href="www.telegram.com">telegram</a></li>
+                <li><a href="www.instagram.com">instagram</a></li>
+                <li><a href="#">facebook</a></li>
+            </ul>
+            <div>
+                <h1>reach us on</h1>
+                <div class="btm">
+                    <img src="../resources/images/map.png" alt="">
+                    <p>nakawa 5th street </p>
+                </div>
+                <div class="btm">
+                    <img src="../resources/images/phone-call.png" alt="">
+                    <p>+(256) 708945673</p>
+                </div>
+                <div class="btm">
+                    <img src="../resources/images/gmail-logo.png" alt="">
+                    <p>homehaven23@gmail.com</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- end footer -->
+    <script src="./Pages/app.js"></script>
+</body>
+</html>
